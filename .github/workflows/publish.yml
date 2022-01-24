@@ -9,22 +9,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and Push
+    name: Build and Publish
     steps:
-      - name: Get the code
+      - name: Get
         uses: actions/checkout@v2
 
-      - name: Install all dependencies
+      - name: Install
         run: npm install
 
-      - name: Build the code
+      - name: Build
         run: npm run build # The build command of your project
 
-      - name: Push
+      - name: Publish
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: git@github.com:giturls/giturls.github.io.git
           BRANCH: master # push to the master branch
           FOLDER: build # push the generated build
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           MESSAGE: "Build: ({sha}) {msg}" # The commit message
