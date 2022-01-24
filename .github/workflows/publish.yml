@@ -26,6 +26,6 @@ jobs:
           REPO: git@github.com:giturls/giturls.github.io.git
           BRANCH: master # push to the master branch
           FOLDER: build # push the generated build
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_PUBLISH_TOKEN }} # Is read from repository secret
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }} # Is read from repository secret
           MESSAGE: "Build: ({sha}) {msg}" # The commit message
