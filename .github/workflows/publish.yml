@@ -27,5 +27,5 @@ jobs:
           BRANCH: master # push to the master branch
           FOLDER: build # push the generated build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }} # Is read from repository secret
           MESSAGE: "Build: ({sha}) {msg}" # The commit message
