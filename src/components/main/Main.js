@@ -1,5 +1,5 @@
 import React from 'react';
-import './Main.css'
+import './Main.scss'
 
 export class Main extends React.Component {
 
@@ -23,13 +23,17 @@ export class Main extends React.Component {
         return (
           <div className="container">
               <div className="row">
-                  <div className="column">
-                      <label htmlFor="exampleFormControlInput1" className="form-label">SSH URL</label>
-                      <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="git@github.com:giturls/giturls-app.git"/>
+                  <div className="column ssh">
+                      <div className='input-container'>
+                        <label htmlFor="exampleFormControlInput1" className="form-label">SSH</label>
+                        <input type="text" className="form-input" id="exampleFormControlInput1" placeholder="git@github.com:giturls/giturls-app.git"/>
+                      </div>
                   </div>
-                  <div className="column">
-                      <label htmlFor="exampleFormControlInput2" className="form-label">HTTP URL</label>
-                      <input type="text" className="form-control" id="exampleFormControlInput2" placeholder="https://github.com/giturls/giturls-app.git"/>
+                  <div className="column http">
+                      <div className='input-container'>
+                        <label htmlFor="exampleFormControlInput2" className="form-label">HTTP</label>
+                        <input type="text" className="form-input" id="exampleFormControlInput2" placeholder="https://github.com/giturls/giturls-app.git"/>
+                      </div>
                   </div>
               </div>
           </div>
