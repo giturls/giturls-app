@@ -8,15 +8,10 @@ export class Main extends React.Component {
         this.state = { value: '' };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-
-    handleSubmit(event) {
-
+      console.log(event.nativeEvent);
     }
 
     render() {
@@ -26,13 +21,13 @@ export class Main extends React.Component {
                   <div className="column http">
                       <div className='input-container'>
                         <label htmlFor="exampleFormControlInput2" className="form-label">HTTP</label>
-                        <input type="text" className="form-input" id="exampleFormControlInput2" placeholder="https://github.com/giturls/giturls-app.git"/>
+                        <input type="text" className="form-input" id="http-input" onChange={this.handleChange} placeholder="https://github.com/giturls/giturls-app.git"/>
                       </div>
                   </div>
                   <div className="column ssh">
                     <div className='input-container'>
                       <label htmlFor="exampleFormControlInput1" className="form-label">SSH</label>
-                      <input type="text" className="form-input" id="exampleFormControlInput1" placeholder="git@github.com:giturls/giturls-app.git"/>
+                      <input type="text" className="form-input" id="ssh-input" onChange={this.handleChange} placeholder="git@github.com:giturls/giturls-app.git"/>
                     </div>
                   </div>
               </div>
