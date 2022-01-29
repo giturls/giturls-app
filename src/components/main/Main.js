@@ -1,37 +1,35 @@
 import React from 'react';
 import './Main.scss'
+import {InputSection} from "../input-section/InputSection";
 
 export class Main extends React.Component {
 
-    constructor(props) {
-      super(props);
-        this.state = { value: '' };
+  constructor(props) {
+    super(props);
+      this.handleHttpUrlChange = this.handleHttpUrlChange.bind(this);
+      this.handleSSHUrlChange = this.handleSSHUrlChange.bind(this);
+  }
 
-    this.handleChange = this.handleChange.bind(this);
-    }
+  handleHttpUrlChange(event) {
+    console.log(event);
+  }
 
-    handleChange(event) {
-      console.log(event.nativeEvent);
-    }
+  handleSSHUrlChange(event) {
+    console.log(event.nativeEvent);
+  }
 
-    render() {
-        return (
-          <div className="container">
-              <div className="row">
-                  <div className="column http">
-                      <div className='input-container'>
-                        <label htmlFor="exampleFormControlInput2" className="form-label">HTTP</label>
-                        <input type="text" className="form-input" id="http-input" onChange={this.handleChange} placeholder="https://github.com/giturls/giturls-app.git"/>
-                      </div>
-                  </div>
-                  <div className="column ssh">
-                    <div className='input-container'>
-                      <label htmlFor="exampleFormControlInput1" className="form-label">SSH</label>
-                      <input type="text" className="form-input" id="ssh-input" onChange={this.handleChange} placeholder="git@github.com:giturls/giturls-app.git"/>
-                    </div>
-                  </div>
+  render() {
+    return (
+      <div className="container">
+          <div className="row">
+              <div className="column http">
+                <InputSection label="HTTP" placeHolder="https://github.com/giturls/giturls-app.git"/>
+              </div>
+              <div className="column ssh">
+                <InputSection label="SSH" placeHolder="git@github.com:giturls/giturls-app.git" />
               </div>
           </div>
-        );
-    }
+      </div>
+    );
+  }
 }

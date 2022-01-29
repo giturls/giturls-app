@@ -1,0 +1,22 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
+
+    .form-label {
+        text-align: center;
+        color: #67595E;
+        font-size: 30px;
+        font-weight: bolder;
+        margin-bottom: 16px;
+    }
+
+    input {
+        border-radius: 2px;
+        border: none;
+        height: 24px;
+        padding: 8px;
+        text-align: center;
+    }
+}
