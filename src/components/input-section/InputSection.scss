@@ -12,11 +12,15 @@
         margin-bottom: 16px;
     }
 
-    input {
+    input.form-input {
         border-radius: 2px;
-        border: none;
+        border: 2px solid transparent;
         height: 24px;
         padding: 8px;
         text-align: center;
+    }
+
+    input.hasError {
+        border: 2px solid red;
     }
 }

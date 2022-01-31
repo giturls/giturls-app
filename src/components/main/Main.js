@@ -1,21 +1,13 @@
 import React from 'react';
 import './Main.scss'
-import {InputSection} from "../input-section/InputSection";
+import { InputSection } from "../input-section/InputSection";
+import { reducer } from "../../state/reducer";
+import { createStore } from "redux";
 
 export class Main extends React.Component {
 
   constructor(props) {
     super(props);
-      this.handleHttpUrlChange = this.handleHttpUrlChange.bind(this);
-      this.handleSSHUrlChange = this.handleSSHUrlChange.bind(this);
-  }
-
-  handleHttpUrlChange(event) {
-    console.log(event);
-  }
-
-  handleSSHUrlChange(event) {
-    console.log(event.nativeEvent);
   }
 
   render() {

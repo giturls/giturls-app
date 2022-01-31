@@ -1,10 +1,11 @@
 import {GIT_HTTPS_PATTERN_REGEX, GIT_SSH_PATTERN, GIT_SSH_PATTERN_REGEX} from "./Constants";
 
-export class Url {
+export default class Url {
     url;
     host
     repository;
     organization;
+    valid = true;
 
     constructor(url) {
         this.url = url;
@@ -17,16 +18,20 @@ export class Url {
         } else if (this.isHttpsUrl()) {
             this.parseHttpsUrl();
         } else {
-            // todo: handle error
+            this.valid = false;
         }
     }
 
     isSSHUrl = () => {
-        return this.url?.match(GIT_SSH_PATTERN_REGEX)?.length < 4;
+        return this.url?.match(GIT_SSH_PATTERN_REGEX)?.length === 4;
     }
 
     isHttpsUrl = () => {
-        return this.url?.match(GIT_HTTPS_PATTERN_REGEX)?.length < 4;
+        return this.url?.match(GIT_HTTPS_PATTERN_REGEX)?.length === 4;
+    }
+
+    isValid = () => {
+        return this.valid;
     }
 
     toSSHUrl = () => {
