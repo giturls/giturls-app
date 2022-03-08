@@ -1,4 +1,4 @@
-import {GIT_HTTPS_PATTERN_REGEX, GIT_SSH_PATTERN, GIT_SSH_PATTERN_REGEX} from "./Constants";
+import { GIT_HTTPS_PATTERN_REGEX, GIT_SSH_PATTERN_REGEX }  from "./Constants";
 
 export default class Url {
     url;

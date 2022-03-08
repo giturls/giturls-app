@@ -1,44 +1,39 @@
 import React from 'react';
-import { createStore } from "redux";
-
 import './InputSection.scss'
-import { reducer } from "../../state/reducer";
-import {httpUrlModified, sshUrlModified} from "../../state/actions";
+import { Field, reduxForm } from "redux-form";
 
 export class InputSection extends React.Component {
 
   constructor(props) {
     super(props);
-    this.store = createStore(reducer);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  dispatchChanges(fieldName) {
-    switch(fieldName) {
-      case 'sshUrl':
-        this.store.dispatch(sshUrlModified());
-        break;
-      case 'httpUrl':
-        this.store.dispatch(httpUrlModified());
-        break;
-    }
-  }
-
-  async handleChange(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-    await this.setState({[name]: value});
-    this.dispatchChanges(name);
   }
 
   render() {
     return (
-      <div className='input-container'>
-        <label htmlFor="url-input" className="form-label">{ this.props.label }</label>
-        <input type="text" className={"form-input" + (this.state.errors[this.props.name] ? " hasError" : "") }
-               id="url-input" name={ this.props.name } onChange={ this.handleChange }
-               placeholder={ this.props.placeHolder } value={ this.state[this.props.name] }/>
+    <div className="container">
+      <div className="row">
+        <div className="column http">
+          <div className='input-container'>
+            <label htmlFor="url-input" className="form-label">HTTP URL</label>
+            <Field component="input" type="text" className={ "form-input" }
+                   id="url-input" name="http" placeholder="https://github.com/giturls/giturls-app.git" />
+          </div>
+        </div>
+        <div className="column ssh">
+          <div className='input-container'>
+            <label htmlFor="url-input" className="form-label">SSH URL</label>
+            <Field component="input" type="text" className={ "form-input" } id="url-input" name="ssh"
+                   placeholder="git@github.com:giturls/giturls-app.git"/>
+          </div>
+        </div>
       </div>
+    </div>
+
     );
   }
 }
+
+InputSection = reduxForm({
+  form: 'git-urls',
+})(InputSection);
